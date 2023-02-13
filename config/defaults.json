@@ -1,0 +1,10 @@
+{
+    "db-connections":{
+        "mongodb":{
+            "host":"practicas-proglll.o2usj.mongodb.net",
+            "user":"Casa-Barrio",
+            "password":"Zh3ZG9d7NEdvQ0Jv",
+            "dbname":"CasaBarrioDB"
+        }
+    }
+}
