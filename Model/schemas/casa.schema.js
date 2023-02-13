@@ -3,26 +3,35 @@ const mongoose = require('mongoose');
 
 
 const casaSchema = new mongoose.Schema({
-    Direccion: {
+    direccion: {
         type: String,
         required: true
     },
-    Color: {
+    color: {
         type: String,
         required: true
     },
-    NumeroPisos: {
+    numeroPisos: {
         type: Number,
         required: true
     },
-    TieneGaraje: {
+    tieneGaraje: {
         type: Boolean,
         required: true
     },
-    Telefono: {
+    telefono: {
         type: String,
         required: true  
-    }
+    },
+    numeroHabitaciones: {
+        type: Number,
+        required: true
+    },
+    casa_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Coll Casas",
+        required: true
+    },
 });
 
 /** module.exports = mongoose.model('Casa', casaSchema); */

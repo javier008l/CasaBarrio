@@ -3,16 +3,20 @@
 const Mongoose = require('mongoose');
 
 const barrioSchema = new Mongoose.Schema({
-    Ciudad: { 
+    ciudad: { 
         type: String,
         required: true
     },
-    Localidad: {    
+    localidad: {    
         type: String,
         required: true
     },
-    Nombre: {
+    nombre: {
         type: String,
+        required: true
+    },
+    estrato: { 
+        type: Number,
         required: true
     }
 });
