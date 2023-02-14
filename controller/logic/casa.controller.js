@@ -19,6 +19,7 @@ exports.createCasa = (req, res, next) => {
 				error: err,
 			});
 		}
+		res.status(204).json()
 	});
 };
 
