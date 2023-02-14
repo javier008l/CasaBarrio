@@ -1,6 +1,6 @@
 /** Dto */
-const dto = require('../../model/dto/casa.dto');
-const config = require('config');
+const casaDto = require('../../model/dto/casa.dto');
+// const config = require('config');
 
 exports.createCasa = (req, res, next) => {
 	let std = {

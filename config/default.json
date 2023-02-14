@@ -1,5 +1,5 @@
 {
-	"db-connections": {
+	"db-connection": {
 		"mongodb": {
 			"host": "practicas-proglll.o2usj.mongodb.net",
 			"user": "Casa-Barrio",
@@ -8,5 +8,5 @@
 		}
 	},
 
-	"server-port": 3000
+	"server-port": 4000
 }
