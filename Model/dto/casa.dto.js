@@ -1,8 +1,10 @@
 /**Packages */
 const mongoose = require('mongoose');
+const db = require('../db-connection/mongodb');
 
 /** usando schema */
 const schema = require('../schemas/casa.schema');
+db();
 
 schema.statics = {
 	create: function (data, cb) {
