@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 const db = require('../db-connection/mongodb');
 
-/** usando schema */
+/** using schema */
 const schema = require('../schemas/casa.schema');
 db();
 
