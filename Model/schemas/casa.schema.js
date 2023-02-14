@@ -1,10 +1,12 @@
 /** packages */
 const mongoose = require('mongoose');
+const validator = require('mongoose-unique-validator');
 
 const casaSchema = new mongoose.Schema({
 	direccion: {
 		type: 'String',
 		required: true,
+		unique: true
 	},
 	color: {
 		type: 'String',
@@ -39,4 +41,5 @@ const casaSchema = new mongoose.Schema({
 });
 
 /** module.exports = mongoose.model('Casa', casaSchema); */
+casaSchema.plugin(validator)
 module.exports = casaSchema;
