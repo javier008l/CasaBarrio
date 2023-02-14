@@ -21,7 +21,7 @@ exports.createCasa = (req, res, next) => {
 			return res.status(400).json({
 				error: err,
 			});
-		};
+		}
 
 		let = house = {
 			direccion: std.direccion,
