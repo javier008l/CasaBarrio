@@ -2,7 +2,7 @@
 const casaDto = require('../../model/dto/casa.dto');
 
 /**Helper */
-const nothelper = require("../helper/notification.helper.js")
+const nothelper = require("../helpers/notification.helper")
 const config = require('config');
 
 exports.createCasa = (req, res, next) => {
