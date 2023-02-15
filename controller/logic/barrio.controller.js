@@ -58,7 +58,7 @@ exports.getAll = (req, res, next) => {
 };
 
 exports.getByCiudad = (req, res, next) => {
-	teacherDto.getByCiudad({ ciudad: req.params.ciudad }, (err, data) => {
+	barrioDto.getByCiudad({ ciudad: req.params.ciudad }, (err, data) => {
 		if (err) {
 			return res.status(400).json({
 				error: err,
