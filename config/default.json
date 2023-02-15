@@ -1,9 +1,9 @@
 {
 	"db-connections": {
 		"mongodb": {
-			"host": "practicas-proglll.o2usj.mongodb.net",
-			"user": "practica-prog3",
-			"password": "gc8SXIH1lTqnjdSk",
+			"host": "cluster0.g2jcjf7.mongodb.net",
+			"user": "acad_rest_api_user",
+			"password": "mKuWdj7JCeeO9z5j",
 			"dbname": "CasaBarrioDB"
 		}
 	},
