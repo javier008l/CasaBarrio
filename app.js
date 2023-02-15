@@ -9,6 +9,8 @@ const port = config.get('server-port');
 const jsonParser = bodyParser.json();
 const urlEncodedParser = bodyParser.urlencoded({ extended: true });
 
+const ipFn = require('./middleware/getIpAddress')
+app.use('*', ipFn);
 app.use(jsonParser);
 app.use(urlEncodedParser);
 
@@ -17,12 +19,18 @@ app.get('/', (req, res, next) => {
 	res.send('Welcome to academic rest api');
 });
 
-app.get('/casa', (req, res, next) => {
-	controller.getAll(req, res, next);
-});
+// app.get('/barrio', (req, res, next) => {
+// 	controller.getAll(req, res, next);
+// });
 
-const studentRoutes = require('./routes/casa.routes');
-studentRoutes(app);
+// Casas Routes loading
+const casaRoutes = require('./routes/casa.routes');
+casaRoutes(app);
+
+// Barrio Routes Loading
+const barrioRoutes = require('./routes/barrio.routes');
+barrioRoutes(app);
+
 
 app.listen(port, () => {
 	console.log('server is running on port');

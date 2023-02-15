@@ -82,7 +82,6 @@ exports.createCasa = (req, res, next) => {
 	};
 
 	exports.getByCode = (req, res, next) => {
-
 		casaDto.getByCode({ code: req.params.direccion }, (err, data) => {
 			if (err) {
 				return res.status(400).json({
