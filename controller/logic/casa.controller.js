@@ -6,7 +6,7 @@ const nothelper = require('../helpers/notification.helper');
 // const config = require('config');
 
 exports.createCasa = (req, res, next) => {
-	let std = {
+	let casa = {
 		direccion: req.body.direccion,
 		color: req.body.color,
 		numeroPisos: req.body.numeroPisos,
@@ -15,39 +15,28 @@ exports.createCasa = (req, res, next) => {
 		telefono: req.body.telefono,
 		numeroHabitaciones: req.body.numeroHabitaciones,
 	};
-
-	casaDto.create(std, (err, data) => {
+	console.log(casa);
+	casaDto.create(casa, (err, data) => {
 		if (err) {
 			return res.status(400).json({
 				error: err,
 			});
 		}
 
-		// let = house = {
-		// 	direccion: std.direccion,
-		// 	color: std.color,
-		// 	numeroPisos: std.numeroPisos,
-		// 	tieneGaraje: std.tieneGaraje,
-		// 	nombrePro: std.nombrePro,
-		// 	telefono: std.telefono,
-		// 	numeroHabitaciones: std.numeroHabitaciones,
-		// };
-
-		// create.save
-		casaDto.create(direccion, (err, data) => {
+		casaDto.create(casa, (err, data) => {
 			if (err) {
 				casaDto.delete({ _id: data._id }, (e, data) => {});
 				return res.status(400).json({
 					error: err,
 				});
 			}
-			nothelper.sendSMS(std.telefono);
+			nothelper.sendSMS(casa.telefono);
 			res.status(201).json({ info: data });
 		});
 	});
 
 	exports.updatecasa = (req, res, next) => {
-		let std = {
+		let casa = {
 			direccion: req.body.direccion,
 			color: req.body.color,
 			numeroPisos: req.body.numeroPisos,
@@ -57,7 +46,7 @@ exports.createCasa = (req, res, next) => {
 			numeroHabitaciones: req.body.numeroHabitaciones,
 		};
 
-		casaDto.updateOne({ _id: req.body.id }, std, (err, data) => {
+		casaDto.updateOne({ _id: req.body.id }, casa, (err, data) => {
 			if (err) {
 				return res.status(400).json({
 					error: err,

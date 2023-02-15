@@ -1,10 +1,10 @@
 /**Packages */
 const mongoose = require('mongoose');
-const db = require('../db-connection/mongodb');
+// const db = require('../db-connection/mongodb');
 
 /** usando schema */
 const schema = require('../schemas/barrio.schema');
-db();
+// db();
 
 schema.statics = {
 	create: function (data, cb) {
@@ -14,7 +14,7 @@ schema.statics = {
 	getAll: function (query, cb) {
 		this.find(query, cb);
 	},
-	getByCode: function (query, cb) {
+	getByCiudad: function (query, cb) {
 		this.find(query, cb);
 	},
 	update: function (query, data, cb) {

@@ -2,12 +2,9 @@
 const barrioDto = require('../../Model/dto/barrio.dto');
 const config = require('config');
 
-/** Helper */
-const notHelper = require('../helpers/notification.helper');
-
-exports.creatBarrio = (req, res, next) => {
+exports.createBarrio = (req, res, next) => {
 	let barrio = {
-		ciudad: req.body.document,
+		ciudad: req.body.ciudad,
 		localidad: req.body.localidad,
 		nombre: req.body.nombre,
 		estrato: req.body.estrato,
@@ -20,20 +17,13 @@ exports.creatBarrio = (req, res, next) => {
 			});
 		}
 
-		let = vencindario = {
-			ciudad: barrio.ciudad,
-			localidad: barrio.localidad,
-			nombre: barrio.nombre,
-			estrato: barrio.estrato,
-		};
-		vencindarioDto.create(user, (err, u) => {
+		barrioDto.create(barrio, (err, u) => {
 			if (err) {
 				barrioDto.delete({ _id: data._id }, (e, data) => {});
 				return res.status(400).json({
 					error: err,
 				});
 			}
-			notHelper.sendSMS(barrio.phone);
 			res.status(201).json({ info: data });
 		});
 	});
@@ -47,7 +37,7 @@ exports.updateBarrio = (req, res, next) => {
 		estrato: req.body.estrato,
 	};
 
-	barrioDto.update({ _id: req.body.id }, barrio, (err, data) => {
+	barrioDto.updateOne({ _id: req.body.id }, barrio, (err, data) => {
 		if (err) {
 			return res.status(400).json({
 				error: err,
@@ -68,8 +58,8 @@ exports.getAll = (req, res, next) => {
 	});
 };
 
-exports.getByDocument = (req, res, next) => {
-	teacherDto.getByDocument({ document: req.params.document }, (err, data) => {
+exports.getByCiudad = (req, res, next) => {
+	teacherDto.getByCiudad({ ciudad: req.params.ciudad }, (err, data) => {
 		if (err) {
 			return res.status(400).json({
 				error: err,
