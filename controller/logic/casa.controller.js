@@ -1,9 +1,9 @@
 /** Dto */
-const casaDto = require('../../model/dto/casa.dto');
+const casaDto = require('../../Model/dto/casa.dto');
 
 /**Helper */
-const nothelper = require("../helpers/notification.helper")
-const config = require('config');
+const nothelper = require('../helpers/notification.helper');
+// const config = require('config');
 
 exports.createCasa = (req, res, next) => {
 	let std = {
@@ -13,7 +13,7 @@ exports.createCasa = (req, res, next) => {
 		tieneGaraje: req.body.tieneGaraje,
 		nombrePro: req.body.nombrePro,
 		telefono: req.body.telefono,
-		numeroHabitaciones: req.body.telefono,
+		numeroHabitaciones: req.body.numeroHabitaciones,
 	};
 
 	casaDto.create(std, (err, data) => {
@@ -23,31 +23,28 @@ exports.createCasa = (req, res, next) => {
 			});
 		}
 
-		let = house = {
-			direccion: std.direccion,
-			color: std.color,
-			numeroPisos: std.numeroPisos,
-			tieneGaraje: std.tieneGaraje,
-			nombrePro: std.nombrePro,
-			telefono: std.telefono,
-			numeroHabitaciones: std.numeroHabitaciones,
-		};
+		// let = house = {
+		// 	direccion: std.direccion,
+		// 	color: std.color,
+		// 	numeroPisos: std.numeroPisos,
+		// 	tieneGaraje: std.tieneGaraje,
+		// 	nombrePro: std.nombrePro,
+		// 	telefono: std.telefono,
+		// 	numeroHabitaciones: std.numeroHabitaciones,
+		// };
 
 		// create.save
 		casaDto.create(direccion, (err, data) => {
 			if (err) {
-				casaDto.delete({ _id: data._id }, (e, data) => { });
+				casaDto.delete({ _id: data._id }, (e, data) => {});
 				return res.status(400).json({
 					error: err,
 				});
 			}
-			nothelper.sendSMS(std.phone);
+			nothelper.sendSMS(std.telefono);
 			res.status(201).json({ info: data });
 		});
 	});
-
-
-
 
 	exports.updatecasa = (req, res, next) => {
 		let std = {
@@ -57,10 +54,10 @@ exports.createCasa = (req, res, next) => {
 			tieneGaraje: req.body.tieneGaraje,
 			nombrePro: req.body.nombrePro,
 			telefono: req.body.telefono,
-			numeroHabitaciones: req.body.telefono,
+			numeroHabitaciones: req.body.numeroHabitaciones,
 		};
 
-		casaDto.update({ _id: req.body.id }, std, (err, data) => {
+		casaDto.updateOne({ _id: req.body.id }, std, (err, data) => {
 			if (err) {
 				return res.status(400).json({
 					error: err,
@@ -81,8 +78,8 @@ exports.createCasa = (req, res, next) => {
 		});
 	};
 
-	exports.getByCode = (req, res, next) => {
-		casaDto.getByCode({ code: req.params.direccion }, (err, data) => {
+	exports.getByDireccion = (req, res, next) => {
+		casaDto.getByDireccion({ direccion: req.params.direccion }, (err, data) => {
 			if (err) {
 				return res.status(400).json({
 					error: err,
@@ -93,7 +90,7 @@ exports.createCasa = (req, res, next) => {
 	};
 
 	exports.deleteCasa = () => {
-		studentDto.delete({ _id: req.body.direccion }, (err, data) => {
+		casaDto.delete({ _id: req.body.direccion }, (err, data) => {
 			if (err) {
 				return res.status(400).json({
 					error: err,
@@ -102,4 +99,4 @@ exports.createCasa = (req, res, next) => {
 			res.status(204).json();
 		});
 	};
-}
+};

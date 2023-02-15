@@ -1,7 +1,6 @@
 /**Packages */
 const mongoose = require('mongoose');
 const config = require('config');
-// const { default: mongoose } = require('mongoose');
 
 const mongodbInfo = config.get('db-connections.mongodb');
 
