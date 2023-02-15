@@ -1,6 +1,5 @@
 /**Dto */
 const barrioDto = require('../../Model/dto/barrio.dto');
-const config = require('config');
 
 exports.createBarrio = (req, res, next) => {
 	let barrio = {
