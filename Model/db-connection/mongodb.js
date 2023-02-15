@@ -4,7 +4,7 @@ const config = require('config');
 
 const mongodbInfo = config.get('db-connections.mongodb');
 
-/**mongodb+srv://practica-prog3:gc8SXIH1lTqnjdSk@practicas-proglll.o2usj.mongodb.net/CasaBarrioDB */
+//? mongodb+srv://acad_rest_api_user:mKuWdj7JCeeO9z5j@$cluster0.g2jcjf7.mongodb.net/CasaBarrioDB
 const connStr = `mongodb+srv://${mongodbInfo.user}:${mongodbInfo.password}@${mongodbInfo.host}/${mongodbInfo.dbname}`;
 
 module.exports = () => {
