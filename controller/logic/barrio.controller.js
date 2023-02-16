@@ -11,20 +11,12 @@ exports.createBarrio = (req, res, next) => {
 
 	barrioDto.create(barrio, (err, data) => {
 		if (err) {
+			barrioDto.delete({ _id: data._id }, (e, data) => {});
 			return res.status(400).json({
 				error: err,
 			});
 		}
-
-		barrioDto.create(barrio, (err, u) => {
-			if (err) {
-				barrioDto.delete({ _id: data._id }, (e, data) => {});
-				return res.status(400).json({
-					error: err,
-				});
-			}
-			res.status(201).json({ info: data });
-		});
+		res.status(201).json({ info: data });
 	});
 };
 

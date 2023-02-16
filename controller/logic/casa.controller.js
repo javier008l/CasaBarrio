@@ -11,23 +11,14 @@ exports.createCasa = (req, res, next) => {
 		telefono: req.body.telefono,
 		numeroHabitaciones: req.body.numeroHabitaciones,
 	};
-
 	casaDto.create(casa, (err, data) => {
 		if (err) {
+			casaDto.delete({ _id: data._id }, (e, data) => {});
 			return res.status(400).json({
 				error: err,
 			});
 		}
-
-		casaDto.create(casa, (err, u) => {
-			if (err) {
-				casaDto.delete({ _id: data._id }, (e, data) => {});
-				return res.status(400).json({
-					error: err,
-				});
-			}
-			res.status(201).json({ info: data });
-		});
+		res.status(201).json({ info: data });
 	});
 };
 
