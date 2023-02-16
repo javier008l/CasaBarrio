@@ -37,13 +37,7 @@ const casaSchema = new mongoose.Schema({
 		type: 'String',
 		required: true,
 	},
-	// casa_id: {
-	// 	type: mongoose.Schema.Types.ObjectId,
-	// 	ref: 'coll_casa',
-	// 	required: true,
-	// },
 });
 
-/** module.exports = mongoose.model('Casa', casaSchema); */
 casaSchema.plugin(validator);
 module.exports = casaSchema;
