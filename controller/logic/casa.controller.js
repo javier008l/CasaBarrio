@@ -10,6 +10,7 @@ exports.createCasa = (req, res, next) => {
 		nombrePro: req.body.nombrePro,
 		telefono: req.body.telefono,
 		numeroHabitaciones: req.body.numeroHabitaciones,
+		id: req.body.id,
 	};
 	casaDto.create(casa, (err, data) => {
 		if (err) {
@@ -31,6 +32,7 @@ exports.updateCasa = (req, res, next) => {
 		nombrePro: req.body.nombrePro,
 		telefono: req.body.telefono,
 		numeroHabitaciones: req.body.numeroHabitaciones,
+		id: req.body.id,
 	};
 
 	casaDto.updateOne({ _id: req.body.id }, casa, (err, data) => {

@@ -6,7 +6,7 @@ const casaSchema = new mongoose.Schema({
 	direccion: {
 		type: 'String',
 		required: true,
-		unique: true
+		unique: true,
 	},
 	color: {
 		type: 'String',
@@ -33,6 +33,10 @@ const casaSchema = new mongoose.Schema({
 		type: 'Number',
 		required: true,
 	},
+	id: {
+		type: 'String',
+		required: true,
+	},
 	// casa_id: {
 	// 	type: mongoose.Schema.Types.ObjectId,
 	// 	ref: 'coll_casa',
@@ -41,5 +45,5 @@ const casaSchema = new mongoose.Schema({
 });
 
 /** module.exports = mongoose.model('Casa', casaSchema); */
-casaSchema.plugin(validator)
+casaSchema.plugin(validator);
 module.exports = casaSchema;
