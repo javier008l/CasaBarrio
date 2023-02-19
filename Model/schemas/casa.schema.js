@@ -34,7 +34,8 @@ const casaSchema = new mongoose.Schema({
 		required: true,
 	},
 	id: {
-		type: 'String',
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'coll_barrio',
 		required: true,
 	},
 });
